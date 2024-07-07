@@ -24,6 +24,7 @@ section {
   border-radius: 10px;
   height: 500px;
   transform-style: preserve-3d;
+  overflow: visible;
 }
 
 .picture-box::before {
@@ -34,14 +35,13 @@ section {
   font-weight: bold;
   font-style: italic;
   top: 30px;
-  left: 50px;
-  transform: translate{-50%, 0};
+  left: 50%;
+  transform: translate(-50%, 0);
   opacity: 0;
   transition: 0.5s;
 }
 
 .picture-box:hover::before {
-  
   opacity: 0.9;
 }
 
@@ -60,7 +60,6 @@ section {
 }
 
 .picture-box:hover::after {
- 
   opacity: 0.9;
 }
 
