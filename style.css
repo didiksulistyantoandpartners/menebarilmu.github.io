@@ -18,93 +18,54 @@ section {
 }
 
 /* My Picture Section */
-.picture-box {
-  position: relative;
-  background-color: #e2edff;
-  border-radius: 10px;
-  height: 500px;
-  transform-style: preserve-3d;
-  overflow: visible;
-}
-
-.picture-box::before {
-  content: "MY";
-  position: absolute;
-  color: #fff;
-  font-size: 6em;
-  font-weight: bold;
-  font-style: italic;
-  top: 30px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.picture-box:hover::before {
-  opacity: 0.9;
-}
-
+/* komentar atau hapus saja */
 .picture-box::after {
-  content: "PICTURE";
-  position: absolute;
-  color: #fff;
-  font-size: 4.3em;
-  font-weight: bold;
-  font-style: italic;
-  top: 350px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  opacity: 0;
-  transition: 0.5s;
+  display: none;
+}
+/* pastikan .ratio ini pembungkus gambar */
+.picture-box .ratio {
+  position: relative;
+  overflow: hidden;
+  /* DROP aspek-ratio bawaan, ganti dengan padding-top */
+  padding-top: 60%; /* tinggi = 60% lebar → rasio 5:3 */
+  height: 0; /* pastikan kontainer tetap kosong dulu */
 }
 
-.picture-box:hover::after {
-  opacity: 0.9;
-}
-
-.picture-name {
+.picture-box .ratio::after {
+  content: "";
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
-  color: #fff;
-  text-align: center;
-  font-size: 2em;
+  height: 100%;
+  background: color 0;
   opacity: 0;
-  transform: translate3d(0, 0, 50px);
-  transition: 0.5s;
+  transition: opacity 0.5s ease;
+  z-index: 1; /* di bawah gambar, karena gambar pakai z-index:10 */
 }
 
-.picture-box:hover .picture-name {
-  top: 20px;
-  opacity: 0.8;
+.picture-box .ratio:hover::after {
+  opacity: 0.8; /* atau 0.9 sesuai selera */
 }
-
-.picture-detail-button {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate3d(-50%, 0, 100px);
-  opacity: 0;
-  transition: 0.5s;
-  z-index: 3;
-}
-
-.picture-box:hover .picture-detail-button {
-  opacity: 1;
-  bottom: 20px;
-}
-
 .picture-img {
-  position: absolute;
-  top: 52%;
-  left: 52%;
-  transform: translate3d(-50%, -52%, 100px);
-  max-width: 350px;
-  transition: 0.5s;
+  position: relative; /* atau absolute, sesuai kode kamu */
   z-index: 10;
 }
-
-.picture-box:hover .picture-img {
-  transform: translate3d(-50%, -52%, 100px) rotate(5deg) scale(1.2);
+/* Buat SVG jadi block dan tanpa margin */
+.svg-divider {
+  display: block;
+  width:100%
+  margin: 0;
+  line-height: 0; /* hilangkan gap bawah */
+}
+#Contact {
+  margin-bottom: 0; /* capek kalau ada space bawaan */
+  padding-bottom: 0;
+}
+footer {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+footer {
+  background-color: #000676 !important; /* pastikan ini sama dengan fill SVG (#000b76) */
 }
